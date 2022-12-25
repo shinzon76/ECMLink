@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>com.ecmtuning.ecmlink</id>
+  <launchable type="desktop-id">com.ecmtuning.ecmlink.desktop</launchable>
+  <name>ECMLink</name>
+  <project_license>Proprietary</project_license>
+  <developer_name>ECMTuning inc.</developer_name>
+  <metadata_license>CC0-1.0</metadata_license>
+  <content_rating type="oars-1.1" />
+  <summary>Engine Management That Makes Sense</summary>
+  <description>
+    <p>
+      ECMLink is our next generation tuning and logging tool for the '90-'99 DSMs and '92-'95 Lancer EVO 1-3 platforms.  
+      ECMLink provides enhanced logging functionality (MUCH faster than factory) and all the tuning tools you need to 
+      run any number of different configurations from bone stock cars on a stock MAF to 11-second road course beasts on 
+      speed density to 8-second drag cars running a GM MAF.
+    </p>
+    <p>  
+      ECMLink has the flexibility you need to do just about anything you want.
+    </p>
+    <p>
+      ECMLink is the result of nearly 3 years of work. We took an already perfectly good package and made it better. 
+      A LOT better. Everything was redesigned, rebuilt, and recoded to roll in everything we've learned from our first 
+      6 years of business. V3 isn't really an upgrade as much as it is a completely new product! ]
+    </p>
+  </description>
+  <url type="homepage">http://www.ecmtuning.com</url>
+  <url type="faq">http://www.ecmtuning.com/wiki/faqshome</url>
+  <url type="help">http://www.ecmtuning.com/wiki/</url>
+  <url type="contact">http://www.ecmtuning.com/contact_us.php</url>
+  <screenshots>
+    <screenshot type="default">
+      <caption>The main device information tab showing connection status and device configuration details for the connected ECU.</caption>
+      <image type="source" >http://www.ecmtuning.com/images/forums/v3screenshots/deviceinfo.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Basic graph preferences screen. The user can configure a number of unique items to account for personal display preferences or machine configurations.</caption>
+      <image type="source" >http://www.ecmtuning.com/images/forums/v3screenshots/graphprefs.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>The main datalog screen showing the graph legend and a basic datalog sample.</caption>
+      <image type="source" >http://www.ecmtuning.com/images/forums/v3screenshots/graphview.png</image>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release version="3.36.73" date="2019-02-09">
+      <description>
+        <p>Changes:</p>
+        <ul>
+          <li>Added support for post key-on fuel pump prime function.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.34.151" date="2017-04-22">
+      <description>
+        <p>Changes:</p>
+        <ul>
+          <li>Added support for 64-bit Linux JVM (should auto detect at runtime)</li>
+          <li>Added row-based (left-to-right) and column-based (top-to-bottom) interpolation options to tables</li>
+          <li>Added scaling/multiply option to tables and lists</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.33.115" date="2016-11-27">
+      <description>
+        <p>Changes:</p>
+        <ul>
+          <li>Apparently 80 psi still wasn't enough… Extended boost field range on FPS, EGR and Boost (WGS) tabs from 80 psi to 117 psi.</li>
+          <li>Added airflow and boost-based fuel cut options to the ECU Config→Fuel tab. If you have a MAP sensor defined in your ECU Inputs tab, you can specify the pressure at which you'd like fuel cut. If you do not, you can use LoadFactor instead.</li>
+          <li>Extended LoadFactor upper limit. It's impossible to given an exact boost figure here, of course, because LoadFactor is based on the mass of air going into the cylinder per revolution of the engine which varies for the same manifold pressure depending on the volumetric efficiency of your setup. But it's roughly extended from about 70 psi to 140 psi.</li>
+          <li>This update includes proper application signatures for both Windows and MacOS as well as a new installation platform and a new underlying runtime library. Any one of these could cause problems…all three at the same time will surely cause someone some grief. So please report ASAP. support@ecmtuning.com</li>
+          <li>New rpm and debian package distributions for Linux. Forewarning…there has been *zero* testing of these two items. We're tossing them up because they come for free with our new install platform. If someone needs them and gets a chance to test them, please let us know how it goes!</li>
+          <li>NOTE: Linux installations will require that you already have Java 1.8 installed on your system. Most distributions come with that by default these days, but just in case…</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.29.64" date="2014-10-15">
+      <description>
+        <p>Changes:</p>
+        <ul>
+          <li>Extended boost field range on FPS, EGR and Boost (WGS) tabs from 60psi to 80psi for a few (OK, one) crazy individuals. This could get interesting!</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.29.63" date="2014-10-01">
+      <description>
+        <p>Changes:</p>
+        <ul>
+          <li>The “Stop capture” action now creates a new auto-named datalog file and writes current stream and configuration data to it if no live datalog file had been established previously. Prior to this release, the decision to create a new auto-named datalog file was only made when the stream was started. But now the user can decide before or after a stream has been started whether to auto save or not. The “Start stream” → “Stop stream” sequence remains unchanged; as does the “Start capture” sequence whether followed by “Stop stream” or “Stop capture”. The only sequence affected here is the “Start stream” → “Stop capture” sequence which now auto-creates a new datalog and dumps all previously memory-based datalog packets to the new file and initializes the datalog tab as though it had been created using the “Start capture” action.</li>
+          <li>“File→Open” and “File→Save as” will now default to the last “accessed” directory whether established via “File→Save as” *or* the auto-log-capture create process. Prior to this release, the auto-log process did not influence the initial directory where the “File→Open” or “File→Save as” dialog would start, leading to annoying navigation issues.</li>
+        </ul>
+      </description>
+    </release>
+  <release version="3.28.121" date="2014-03-25">
+      <description>
+        <p>Changes:</p>
+        <ul>
+          <li>Added display item for base fuel pressure. If you're logging a sensor that produces a fuel pressure readout (AutoMeter2246, GMACPress or LinFuelPress) and you have manifold pressure in your log as well (GM3Bar, Omni4Bar, AEM35, LinBoost, etc.), then this display item combines the two to calculate a base fuel pressure reading.</li>
+          <li>This release is really just to bump up the application version number so that we can release a new firmware update to fix some bugs in the ethanol sensor release. The application will complain if it's connecting to an ECU with a firmware version later than the application version.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.28.106" date="2014-03-10">
+      <description>
+        <p>Changes:</p>
+        <ul>
+          <li>Added support for ethanol sensor functionality. Access to this function requires an ECU firmware upgrade as well. This change adds a number of new loggable parameters as well, including FlexFreq, FlexEthMix, FlexOctWeight and FlexFuelAdj.</li>
+          <li>Added support for user-editable minimum injector pulsewidth. Access to this function requires an ECU firmware upgrade as well.</li>
+          <li>Fixed minor display truncation bug in the Direct Access LTFTSelect table.</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.26.92" date="2013-10-28">
+      <description>
+        <p>Changes:</p>
+        <ul>
+          <li>Fixed bug that caused an application lock after some direct access updates.</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+</component>

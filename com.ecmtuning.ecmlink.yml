@@ -1,0 +1,49 @@
+app-id: com.ecmtuning.ecmlink
+runtime: org.freedesktop.Platform
+runtime-version: '22.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.openjdk8
+finish-args:
+  - --filesystem=~/ecmlink:create
+  - --persist=.java
+  - --persist=.install4j
+  # X11 access
+  - --socket=x11
+  - --share=ipc
+  # Network access
+  - --share=network
+  # For serial port access
+  - --device=all
+  - --env=JAVA_HOME=/app/jre
+command: ecmlink
+build-options:
+  append-path: /usr/lib/sdk/openjdk8/bin
+modules:
+  - name: openjdk
+    buildsystem: simple
+    build-commands:
+      - /usr/lib/sdk/openjdk8/install.sh
+  - name: ecmlink
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app/bin
+      - cp -rT ecmlink/. /app/bin/				# Copy the ECMLink install to /app/bin
+      - mkdir -p /app/ecmlink					# Create the default settings folder
+      - cp -rT ecmlink-settings/. /app/ecmlink	# Copy default settings dir sekeletion
+      - install -D com.ecmtuning.ecmlink.svg --target-directory=/app/share/icons/hicolor/scalable/apps/
+      - install -D com.ecmtuning.ecmlink.desktop --target-directory=/app/share/applications/
+      - install -D com.ecmtuning.ecmlink.appdata.xml --target-directory=/app/share/appdata/
+    sources:
+      - type: dir
+        path: src/
+        dest: ecmlink/
+      - type: dir
+        path: ecmlink-settings/
+        dest: ecmlink-settings/
+      - type: file
+        path: com.ecmtuning.ecmlink.desktop
+      - type: file
+        path: com.ecmtuning.ecmlink.svg
+      - type: file
+        path: com.ecmtuning.ecmlink.appdata.xml

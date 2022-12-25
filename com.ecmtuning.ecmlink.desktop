@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=ECMLink
+Comment=Engine Management That Makes Sense
+Exec=ecmlink
+Icon=com.ecmtuning.ecmlink.svg
+Terminal=false
