@@ -1,7 +1,0 @@
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Type=Application
-Name=ECMLink
-Exec="/home/john/ECMLink/ecmlink"
-Icon=/home/john/ECMLink/.install4j/ecmlink.png
-Categories=Application;
